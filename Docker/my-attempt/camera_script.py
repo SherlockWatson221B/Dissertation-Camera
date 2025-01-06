@@ -12,6 +12,5 @@ config = picam.create_preview_configuration()
 picam.configure(config)
 
 picam.start()
-time.sleep(2)
 picam.capture_file("first-image.jpg")
 picam.close()

@@ -1,0 +1,12 @@
+#Version of docker-compose file format
+version: "3.7"
+services:
+  camera:
+  #tag added when building image using dockerfile
+     image: picamera-app:latest
+     volumes:
+        - /run/udev:/run/udev
+     privileged: true
+     devices:
+        - "/dev/vchiq:/dev/vchiq"
+     command: "sleep infinity"

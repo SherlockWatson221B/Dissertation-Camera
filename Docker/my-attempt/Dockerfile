@@ -3,7 +3,7 @@
 #https://www.prefect.io/blog/dockerizing-python-applications
 #https://raspberrytips.com/docker-on-raspberry-pi/
 #Base image to use
-FROM python:3.12-slim-bookworm
+FROM navikey/raspbian-bullseye:latest
 
 #Directory created inside container
 RUN mkdir /usr/src/app
@@ -11,7 +11,10 @@ RUN mkdir /usr/src/app
 #Updating packages and then install dependenices for python library picamera2
 RUN apt-get update && \
     apt-get install -y \
+    python3 \
     python3-pip \
+    && pip install --upgrade pip \
+    && apt install -y python3-picamera2 --no-install-recommends \
     # gcc \
     # build-essential \
     # libcap-dev \
@@ -28,7 +31,7 @@ COPY . /usr/src/app
 WORKDIR /usr/src/app
 
 #Installing python dependencies
-RUN pip install --no-cache-dir -r requirements.txt
+#RUN pip install --no-cache-dir -r requirements.txt
 
 #Execute the file from inside of the container.
-CMD ["python", "./camera_photo.py"]
+#CMD ["python", "./camera_photo.py"]
