@@ -1,4 +1,4 @@
-# All below links reference code that was used to help build al docker related files
+# All below links reference code that was used to help build all docker related files
 #https://github.com/jgeorg02/docker-raspbian-picamera2
 #https://www.prefect.io/blog/dockerizing-python-applications
 #https://raspberrytips.com/docker-on-raspberry-pi/
@@ -13,15 +13,9 @@ RUN apt-get update && \
     apt-get install -y \
     python3 \
     python3-pip \
+    ffmpeg \
     && pip install --upgrade pip \
     && apt install -y python3-picamera2 --no-install-recommends \
-    # gcc \
-    # build-essential \
-    # libcap-dev \
-    # libcamera-dev \
-    # meson \
-    # ninja-build \
-    # git \
     && rm -rf /var/lib/apt/lists/*
 
 #Copies everything into the directory inside of the container
