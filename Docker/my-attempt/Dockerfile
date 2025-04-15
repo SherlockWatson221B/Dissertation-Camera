@@ -27,6 +27,3 @@ WORKDIR /usr/src/app
 
 #Installing python dependencies
 #RUN pip install --no-cache-dir -r requirements.txt
-
-#Execute the file from inside of the container.
-#CMD ["python", "./camera_photo.py"]

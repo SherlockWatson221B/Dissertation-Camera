@@ -9,4 +9,5 @@ services:
      privileged: true
      devices:
         - "/dev/vchiq:/dev/vchiq"
-     command: "sleep infinity"
+     #runs a shell inside of the container to allow multiple commands used to run python script and the sleep to keep container alive
+     command: /bin/bash -c "python3 camera_recording.py; sleep infinity"
