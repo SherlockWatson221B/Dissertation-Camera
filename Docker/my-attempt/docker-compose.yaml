@@ -5,6 +5,7 @@ services:
   #tag added when building image using dockerfile
      image: picamera-app:latest
      volumes:
+        - /home/pi/Documents/Dissertation-Camera/Docker/recordings/input:/usr/src/app/input
         - /run/udev:/run/udev
      privileged: true
      devices:

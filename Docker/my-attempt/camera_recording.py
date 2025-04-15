@@ -31,7 +31,7 @@ class FFmpegCommand:
             '-framerate', '30',
             '-i', f'{self.ffmpeg_file}.h264',
             '-c', 'copy',
-            f'{self.ffmpeg_file}.mp4'
+            f'input/{self.ffmpeg_file}.mp4'
         ]
         #try except block used to catch any potential errors
         try:
@@ -56,7 +56,8 @@ class CaptureVideo:
         '''
         #Creates object of picamera for setting up config
         picam2 = Picamera2()
-        config = picam2.create_video_configuration(main={"size": (1920, 1080)})
+        #config = picam2.create_video_configuration(main={"size": (1920, 1080)})
+        config = picam2.create_video_configuration()
         picam2.configure(config)
 
         #Encoder used to produce video stream with bitrate number respresenting video quality
@@ -69,7 +70,8 @@ class CaptureVideo:
         picam2.start_recording(encoder, f'{file_name}.h264')
 
         #Records for four hours
-        time.sleep(18001)
+        #time.sleep(18001)
+        time.sleep(11)
         picam2.stop_recording()
         picam2.close()
 
@@ -86,7 +88,7 @@ class video_scheduler:
         Method for creating a scheduler to allow a jon to be run at a specified time period
         '''
         #Every day at 11:00 the recording will start
-        schedule.every().day.at('11:00').do(self.video_recording_job)
+        schedule.every().day.at('19:54').do(self.video_recording_job)
 
         #Checks to see if there is any schedule task that are waiting to run
         while True:

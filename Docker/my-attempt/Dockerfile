@@ -19,8 +19,9 @@ RUN apt-get install -y\
     && apt install -y python3-picamera2 --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
-#Copies everything into the directory inside of the container
-COPY . /usr/src/app
+#Copies the python script and requirements.txt into the working directory inside of the container
+COPY ./camera_recording.py /usr/src/app
+COPY ./requirements.txt /usr/src/app
 
 #Directory container is looking at when created
 WORKDIR /usr/src/app
