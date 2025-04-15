@@ -26,4 +26,8 @@ COPY . /usr/src/app
 WORKDIR /usr/src/app
 
 #Installing python dependencies
-#RUN pip install --no-cache-dir -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+#Correcting time issues with using UTC instead of BST
+RUN apt-get update && apt-get install -y tzdata
+RUN ln -fs /usr/share/zoneinfo/Europe/London /etc/localtime && dpkg-reconfigure -f noninteractive tzdata
