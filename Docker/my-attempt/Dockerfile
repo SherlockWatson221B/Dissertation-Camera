@@ -9,8 +9,9 @@ FROM navikey/raspbian-bullseye:latest
 RUN mkdir /usr/src/app
 
 #Updating packages and then install dependenices for python library picamera2
-RUN apt-get update && \
-    apt-get install -y \
+RUN apt-get update
+RUN apt-get upgrade -y
+RUN apt-get install -y\
     python3 \
     python3-pip \
     ffmpeg \
