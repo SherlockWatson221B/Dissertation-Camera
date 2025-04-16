@@ -1,0 +1,13 @@
+Currently used commands
+    docker build -f Dockerfile.recording -t picamera-app:latest .
+    docker build -f Dockerfile.watching -t watchdog-script:latest .
+    docker-compose up -d
+
+Some other potentially useful commands
+    docker build -t picamera-app:latest .
+    docker-compose up -d
+    docker ps
+    docker exec -it my-attempt_camera_1 bash
+    docker cp my-attempt_camera_1:/usr/src/app/first_video.h264 ~/Documents/PiCam/Docker/my-attempt/
+    docker stop 474b7fca15d7
+    docker rm 474b7fca15d7

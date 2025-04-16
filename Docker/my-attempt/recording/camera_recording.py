@@ -31,7 +31,7 @@ class FFmpegCommand:
             '-framerate', '30',
             '-i', f'{self.ffmpeg_file}.h264',
             '-c', 'copy',
-            f'input/{self.ffmpeg_file}.mp4'
+            f'recordings/{self.ffmpeg_file}.mp4'
         ]
         #try except block used to catch any potential errors
         try:
@@ -71,7 +71,7 @@ class CaptureVideo:
 
         #Records for four hours
         #time.sleep(18001)
-        time.sleep(11)
+        time.sleep(1801)
         picam2.stop_recording()
         picam2.close()
 
@@ -88,7 +88,7 @@ class video_scheduler:
         Method for creating a scheduler to allow a jon to be run at a specified time period
         '''
         #Every day at 11:00 the recording will start
-        schedule.every().day.at('19:54').do(self.video_recording_job)
+        schedule.every().day.at('10:10').do(self.video_recording_job)
 
         #Checks to see if there is any schedule task that are waiting to run
         while True:

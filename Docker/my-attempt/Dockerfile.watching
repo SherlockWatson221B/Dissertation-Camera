@@ -1,0 +1,12 @@
+#https://meghasharmaa704.medium.com/dockerfile-for-a-python-application-d88d6bf14a13 used to help build dockerfile
+FROM python:3.13-slim
+
+# Setting working directory in the container
+WORKDIR /app
+
+# Copy in the python script that is watching for changes in directory
+COPY ./watching/watching_recording_directory.py .
+COPY ./watching/requirements.txt .
+
+# Used to install dependencies for python script via requirements file
+RUN pip install --no-cache-dir -r requirements.txt

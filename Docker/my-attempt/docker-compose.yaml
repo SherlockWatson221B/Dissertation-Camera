@@ -5,10 +5,18 @@ services:
   #tag added when building image using dockerfile
      image: picamera-app:latest
      volumes:
-        - /home/pi/Documents/Dissertation-Camera/Docker/recordings/input:/usr/src/app/input
+        - /home/pi/Documents/Dissertation-Camera/Docker/recordings/input:/usr/src/app/recordings
         - /run/udev:/run/udev
      privileged: true
      devices:
         - "/dev/vchiq:/dev/vchiq"
      #runs a shell inside of the container to allow multiple commands used to run python script and the sleep to keep container alive
      command: /bin/bash -c "python3 camera_recording.py; sleep infinity"
+  watching:
+      image: watchdog-script:latest
+      volumes:
+         - /home/pi/Documents/Dissertation-Camera/Docker/recordings:/app/recordings
+      privileged: true
+      env_file:
+         - watching/.env
+      command: python3 watching_recording_directory.py
