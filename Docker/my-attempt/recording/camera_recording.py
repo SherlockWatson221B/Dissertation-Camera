@@ -88,7 +88,7 @@ class video_scheduler:
         Method for creating a scheduler to allow a jon to be run at a specified time period
         '''
         #Every day at 11:00 the recording will start
-        schedule.every().day.at('10:10').do(self.video_recording_job)
+        schedule.every().day.at('11:05').do(self.video_recording_job)
 
         #Checks to see if there is any schedule task that are waiting to run
         while True:

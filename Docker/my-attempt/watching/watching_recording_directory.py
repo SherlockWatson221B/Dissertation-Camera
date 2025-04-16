@@ -28,8 +28,8 @@ from watchdog.events import FileSystemEventHandler
 class SFTPFileUpload:
     def __init__(self):
         # Defining the filepath for remote and local file
-        self.upload_file = '/Users/Jasmine/Documents/Uni/Year3/Dissertation/Dissertation/code/test/test2.txt'
-        self.target_file = '/httpdocs/BeeCafe/test2.txt'
+        self.local_file_path = '/Users/Jasmine/Documents/Uni/Year3/Dissertation/Dissertation/code/test/test2.txt'
+        self.target_file_path = '/httpdocs/BeeCafe/video/test2.txt'
         # Defining the credientals for the webserver
         self.hostname = os.getenv("hostname")
         self.port = 22 # This is the default port for SFTP
